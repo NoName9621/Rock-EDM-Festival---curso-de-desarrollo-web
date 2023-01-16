@@ -257,8 +257,8 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
-    appearance: textfield;
   -webkit-appearance: textfield; /* 1 */
+  appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
 
@@ -397,15 +397,68 @@ img {
 }
 
 .video {
+  height: 50rem;
   position: relative;
+  overflow: hidden;
 }
 .video .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #f53753;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#891c1e+0,9e37f2+67,ffffff+100&0.8+0,0.5+100 */
+  background: -moz-linear-gradient(-45deg, rgba(137, 28, 30, 0.8) 0%, rgba(158, 55, 242, 0.6) 67%, rgba(255, 255, 255, 0.5) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(137, 28, 30, 0.8) 0%, rgba(158, 55, 242, 0.6) 67%, rgba(255, 255, 255, 0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(137, 28, 30, 0.8) 0%, rgba(158, 55, 242, 0.6) 67%, rgba(255, 255, 255, 0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#cc891c1e", endColorstr="#80ffffff",GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .video video {
   display: block;
   width: 100%;
+}
+
+.contenido-video {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.contenido-video h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  font-size: 7rem;
+}
+.contenido-video h2 span {
+  background-color: #f53753;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+}
+
+.sobre-festival {
+  padding: 3rem 0;
+}
+@media (min-width: 768px) {
+  .sobre-festival {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.contenido-festival {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contenido-festival h2 {
+  font-size: 3rem;
+}
+.contenido-festival .fecha {
+  color: #f53753;
+  font-weight: 700;
+}
+.contenido-festival .texto {
+  margin: 1rem 0;
 }
