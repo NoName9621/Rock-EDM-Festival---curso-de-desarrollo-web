@@ -1,0 +1,52 @@
+.lineup {
+    background-color: $rosa;
+    padding: $separacion 0;
+
+    h3, p {
+        color: $blanco;
+        text-align: center;
+    }
+    .dia {
+        text-transform: uppercase;
+        margin: $separacion 0;
+    }
+}
+
+.escenarios-contenedor {
+    @include tablet {
+        @include grid(2, $separacion)
+    }
+    .escenario {
+        padding-top: calc($separacion/3);
+    }
+
+    .nombre-escenario {
+        color: $negro;
+        font-size: 2rem;
+        font-weight: $delgada;
+
+        &::after{
+            content: '';
+            display: block;
+            width: 15rem;
+            height: 10rem;
+            margin: 2rem auto 0;
+            background-size: 20rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
+
+.edm .nombre-escenario {
+    &::after {
+        background-image: url(../img/icono_edm.png);
+
+    }
+}
+
+.rock .nombre-escenario {
+    &::after {
+        background-image: url(../img/icono_rock.png);
+    }
+}

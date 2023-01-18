@@ -1,5 +1,5 @@
 .video {
-    height: 50rem;
+    max-height: 50rem;
     position: relative;
     overflow: hidden;
 
@@ -33,7 +33,7 @@
         flex-direction: column;
         align-items: flex-start;
         color: $blanco;
-        font-size: 7rem;
+        font-size: 5rem;
 
 
         span {
