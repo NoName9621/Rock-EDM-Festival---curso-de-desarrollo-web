@@ -4,16 +4,22 @@ const sass = require('gulp-sass')(require('sass'));
 const imagemin = require('gulp-imagemin');
 const notify = require('gulp-notify');
 const webp = require('gulp-webp');
+const concat = require('gulp-concat');
 
+const paths = {
+    imagenes: 'src/img/**/*',
+    scss: 'src/scss/**/*.scss',
+    js: 'src/js/**/*.js'
+}
 
 function css(){
-    return src('src/scss/app.scss')
+    return src(paths.scss)
         .pipe(sass())
         .pipe(dest('./build/css'))
 }
 
 function comprimirCss(){
-    return src('src/scss/app.scss')
+    return src(paths.scss)
         .pipe(sass({
             outputStyle: 'compressed'
         }))
@@ -22,7 +28,7 @@ function comprimirCss(){
 }
 
 function expandCss(){
-    return src('src/scss/app.scss')
+    return src(paths.scss)
         .pipe(sass({
             outputStyle: 'expanded'
         }))
@@ -30,22 +36,29 @@ function expandCss(){
         .pipe(notify({message:'CSS Expandido'}))
 }
 
+function javascript(){
+    return src(paths.js)
+        .pipe(concat('bundle.js'))
+        .pipe(dest('./build/js'))
+}
+
 function imagen(){
-    return src('src/img/**/*')
+    return src(paths.imagenes)
         .pipe(imagemin())
         .pipe(dest('./build/img/'))
         .pipe(notify({message:'Imagen Minificada'}))
 }
 
 function versionWebp(){
-    return src('src/img/**/*')
+    return src(paths.imagenes)
         .pipe(webp())
         .pipe(dest('./build/img/'))
         .pipe(notify({message:'Imagen a Webp'}))
 }
 
 function watchArchivos(){
-    watch('src/scss/**/*.scss', css)
+    watch(paths.scss, css);
+    watch(paths.js, javascript);
 }
 
 
@@ -53,8 +66,9 @@ function watchArchivos(){
 exports.css = css;
 exports.comprimircss = comprimirCss;
 exports.expandcss = expandCss;
+exports.javascript = javascript;
 exports.imagen = imagen;
 exports.webp = versionWebp;
 exports.watch = watchArchivos;
 
-exports.default = series(css, imagen, versionWebp, watchArchivos);
+exports.default = series(css, javascript, imagen, versionWebp, watchArchivos);

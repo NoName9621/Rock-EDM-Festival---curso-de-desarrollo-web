@@ -1,0 +1,14 @@
+.galeria {
+    padding: calc($separacion/2);
+    
+    h3 {
+        text-align: center;
+    }
+}
+.galeria-imagenes {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 2rem;
+}

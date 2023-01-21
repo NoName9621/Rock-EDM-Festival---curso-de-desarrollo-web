@@ -50,3 +50,24 @@
         background-image: url(../img/icono_rock.png);
     }
 }
+
+.calendario {
+    padding: 0;
+    list-style: none;
+
+    li {
+        padding: calc($separacion/2);
+        font-weight: $bold;
+    }
+    span{
+        font-weight: $regular;
+    }
+}
+
+.bg-verde .calendario li:nth-child(odd) {
+    background-color: darken($color: $verde, $amount: 10) //Amout of black on color
+}
+
+.bg-amarillo .calendario li:nth-child(odd){
+    background-color: darken($color: $amarillo, $amount: 10);
+}
