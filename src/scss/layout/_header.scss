@@ -19,6 +19,12 @@
         }
         text-align: center;
     }
+
+    &.fijo {
+        position: fixed;
+        width: 100%;
+        box-shadow: 0 0 .5rem .4rem rgba(68, 68, 68, 0.514);
+    }
 }
 
 .navegacion-principal {
