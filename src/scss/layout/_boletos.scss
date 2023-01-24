@@ -1,0 +1,60 @@
+.boletos {
+    padding: calc($separacion/2) 0;
+
+    h3 {
+        text-align: center;
+        color: $blanco;
+    }
+
+    .contenedor-boletos {
+        margin-top: calc($separacion/2);
+        @include grid (2, calc($separacion/2))
+    }
+
+    .plan {
+        p {
+            text-align: center;
+            color: $blanco;
+            font-size: 2.6rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.pase {
+    width: 100%;
+    border-spacing: 0;
+    thead {
+        background-color: $rosa;
+        th {
+            color: $blanco;
+            text-transform: uppercase;
+            padding: calc($separacion/4);
+            font-weight: $delgada;
+            font-size: 2rem;
+        }
+    }
+    tbody {
+        background-color: $blanco;
+        td {
+            padding: calc($separacion/4);
+            border-bottom: 1px solid #e1e1e1;
+        }
+        tr {
+            &:last-of-type {
+                td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    tfoot {
+        background-color: $morado;
+        td {
+            color: $blanco;
+            font-weight: $bold;
+            text-align: center;
+            padding: calc($separacion/4);
+        }
+    }
+}

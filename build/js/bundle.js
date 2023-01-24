@@ -37,7 +37,6 @@ function mostrarImagen(e){
     //Cerrar overlay al hacer click
     overlay.onclick = function(){
         overlay.remove()
-        body.classList.remove('fijar-body')
     }
 
     //Boton para cerrar imagen
